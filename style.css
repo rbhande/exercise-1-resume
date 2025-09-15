@@ -140,7 +140,8 @@ body {
   padding: 2.5% 3.5% 2% 4%;
   border-radius: var(--radius);
   box-shadow: var(--shadow-card);
-  overflow: hidden;
+  /* keep natural height/width; no forced max-height here */
+  overflow: hidden; /* preserves rounded corners while inner blocks scroll */
 }
 
 /* Grid area mapping */
@@ -169,6 +170,8 @@ body {
 .skills-section {
   margin: 2% 0 0 2%;
 }
+
+/* Headings & lists */
 .project-title,
 .experience-title,
 .edu-school {
@@ -197,7 +200,7 @@ h2 {
   margin: 0 0 0.75rem 0;
 }
 
-/* “Button-like” links (scoped) */
+/* Button-like links */
 .btn-link {
   position: relative;
   text-decoration: none;
@@ -241,6 +244,36 @@ h2 {
   color: #052b2b;
 }
 
+/* ---------- Context-aware scrolling (only when needed) ---------- */
+/* Allow inner scrolling when content grows, without forcing fixed heights */
+.item-2,
+.item-3,
+.item-4,
+.item-5,
+.item-6,
+.item-7 {
+  min-height: 0;
+}
+
+/* Long content areas scroll inside themselves if they exceed the cap.
+   Otherwise they keep their natural height and no scrollbar appears. */
+.projects-section,
+.experience-section,
+.skills-section {
+  overflow: auto;
+  /* Clamp keeps a sensible minimum, prefers ~60vh, but won’t exceed the viewport cap */
+  max-height: clamp(240px, 60vh, calc(100vh - 260px));
+  -webkit-overflow-scrolling: touch;
+}
+
+/* If Summary/About can also get long, let their paragraph scroll similarly */
+.item-2 > p,
+.item-7 > p {
+  overflow: auto;
+  max-height: clamp(240px, 60vh, calc(100vh - 260px));
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   body {
@@ -261,6 +294,14 @@ h2 {
   .contact-row {
     grid-template-columns: 1fr;
   }
+
+  .projects-section,
+  .experience-section,
+  .skills-section,
+  .item-2 > p,
+  .item-7 > p {
+    max-height: clamp(220px, 64vh, calc(100vh - 220px));
+  }
 }
 
 @media (max-width: 640px) {
@@ -274,5 +315,13 @@ h2 {
   }
   .page-title {
     text-align: center;
+  }
+
+  .projects-section,
+  .experience-section,
+  .skills-section,
+  .item-2 > p,
+  .item-7 > p {
+    max-height: clamp(200px, 68vh, calc(100vh - 200px));
   }
 }
