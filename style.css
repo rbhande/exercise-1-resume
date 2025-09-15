@@ -54,9 +54,9 @@ body {
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
-  border: 3px solid #0d0d0d; /* matches your card border vibe */
+  border: 3px solid #0d0d0d;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-  flex-shrink: 0; /* never squish the avatar */
+  flex-shrink: 0;
 }
 
 .intro-main {
