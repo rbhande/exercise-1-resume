@@ -242,7 +242,7 @@ body {
   grid-area: about-me;
 }
 
-a {
+/* a {
   position: relative;
   text-decoration: none;
   color: #000;
@@ -262,8 +262,45 @@ a::after {
 }
 
 a:hover {
-  color: black; /* Optional color change */
+  color: black; 
   font-weight: 500;
+}
+
+a:hover::after {
+  width: 100%;
+} */
+
+/* Base styles for links */
+a {
+  position: relative;
+  text-decoration: none;
+  color: #fff; /* White text for contrast */
+  background: #333; /* Dark background */
+  padding: 10px 20px; /* Creates button-like shape */
+  border-radius: 8px; /* Rounded corners */
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block; /* Ensures padding is respected */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle depth */
+}
+
+/* Hover state */
+a:hover {
+  background: #555; /* Slightly lighter background on hover */
+  transform: translateY(-2px); /* Lift effect */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Optional underline animation */
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #fff; /* White underline */
+  transition: width 0.3s ease;
 }
 
 a:hover::after {
