@@ -2,6 +2,12 @@
   --font:
     "Inter", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
+
+  --bg-1: #b5e3e3;
+  --bg-2: #7dc9c9;
+  --card: #cae4e1;
+  --ink: #0d0d0d;
+
   --shadow-card:
     0 12px 28px -12px rgba(0, 0, 0, 0.18), 0 6px 16px -8px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.65);
@@ -9,240 +15,138 @@
   --shadow-header:
     0 18px 48px -16px rgba(0, 0, 0, 0.22), 0 8px 24px -12px rgba(0, 0, 0, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.65);
+
+  --radius: 20px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: linear-gradient(135deg, #b5e3e3, #7dc9c9);
+  margin: 0;
+  background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
   font-family: var(--font);
-  padding: 2% 10% 2% 10%;
+  color: var(--ink);
+  padding: 2% 10%;
 }
 
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin-bottom: 1rem;
+  background: #000;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+}
+
+/* Layout grid */
 .main-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(8, 200px);
+  grid-template-rows: auto;
   gap: 2%;
   padding: 1rem;
-  width: min(
-    100%,
-    2000px
-  ); /* This will keep the container from getting too wide on large screens */
-  height: min(100%, 1200px);
+  width: min(100%, 2000px);
   grid-template-areas:
-    "name name"
     "summary experience"
     "projects experience"
     "projects experience"
     "projects education"
     "skills education"
-    "about-me about-me";
+    "about about";
 }
 
-/* —— Intro layout —— */
+/* Header */
+.header {
+  background: var(--card);
+  padding: 2.5% 3.5% 2% 4%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-header);
+  margin-bottom: 2%;
+}
+
 .intro {
-  margin: 1%;
   display: grid;
-  grid-template-columns: auto 1fr; /* avatar | content */
+  grid-template-columns: auto 1fr;
   gap: 1.25rem;
-  align-items: center; /* vertically align avatar with name */
+  align-items: center;
 }
 
 .avatar {
-  --size: 110px; /* tweak once and it scales everywhere */
+  --size: 110px;
   width: var(--size);
   height: var(--size);
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
-  border: 3px solid #0d0d0d;
+  border: 3px solid var(--ink);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   flex-shrink: 0;
 }
 
-.intro-main {
-  margin-left: 3%;
-}
-
-/* Keep the name from wrapping too soon and give breathing room */
-.intro-main h1 {
-  margin: 0 0 2% 0;
+.page-title {
+  margin: 0 0 0.5rem 0;
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: 0.2px;
 }
 
-/* Contact row already exists; just ensure it wraps nicely */
+/* Contact */
+.contact {
+  font-style: normal;
+}
 .contact-row {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* two neat columns */
+  grid-template-columns: 1fr 1fr;
   gap: 1rem 2rem;
   align-items: start;
 }
-
-/* Mobile: one column */
-@media (max-width: 900px) {
-  .main-container {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "name"
-      "summary"
-      "experience"
-      "projects"
-      "education"
-      "skills"
-      "about-me";
-  }
+.contact-col {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-
-/* Responsive: stack on small screens */
-@media (max-width: 640px) {
-  .intro {
-    grid-template-columns: 1fr; /* stack avatar above content */
-    justify-items: center;
-    text-align: center;
-  }
-  .intro-main h1 {
-    text-align: center;
-  }
-  .contact-row {
-    grid-template-columns: 1fr;
-  } /* single column contacts */
-  .avatar {
-    --size: 96px;
-  } /* slightly smaller on mobile */
-}
-
-.item-1,
-.item-2,
-.item-3,
-.item-4,
-.item-5,
-.item-6,
-.item-7 {
-  grid-area: name;
-  background-color: #cae4e1;
-  padding: 2.5% 3.5% 2% 4%;
-  border-radius: 20px;
-  justify-content: start;
-  align-items: start;
-  /* box-shadow: var(--shadow-card); */
-  box-shadow: var(--shadow-header);
-}
-
-.item-1 h1,
-.item-1 i {
-  font-weight: 450;
-}
-
-.item-1 h1 {
-  width: 65%;
-}
-
-/* 2) Tidy the icons */
-.item-1 i {
-  padding-top: 0; /* remove the downward nudge */
-  font-size: 1rem;
-}
-
-/* 3) Two-column layout that won’t wrap unexpectedly */
-.contact-row {
-  display: flex;
-  align-items: flex-start; /* top-align the two columns */
-  gap: 2rem; /* use gap instead of space-between */
-  justify-content: flex-start;
-}
-
-.intro-section-1 {
-  flex: 0 0 35%;
-  min-width: 0;
-}
-.intro-section-2 {
-  flex: 0 0 30%;
-  min-width: 0;
-}
-
-.phone-number,
-.email,
-.linked-in,
-.github {
+.contact-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin: 0 0 0.5rem 0; /* consistent line spacing */
+  margin: 0 0 0.5rem 0;
+}
+.contact-item i {
+  font-size: 1rem;
 }
 
-.item-1 p,
-.item-2 p,
-.item-3 p,
-.item-4 p,
-.item-5 p,
-.item-6 p,
-.item-7 p {
-  margin: 0;
-  font-weight: 250;
+/* Cards */
+.card {
+  background: var(--card);
+  padding: 2.5% 3.5% 2% 4%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
 }
 
-.intro-section-1 {
-  width: 35%;
-  margin: 0%;
-  padding: 0%;
-}
-
-.intro-section-2 {
-  width: 65%;
-  margin: 0%;
-  padding: 0%;
-}
-
+/* Grid area mapping */
 .item-2 {
   grid-area: summary;
 }
-
-.item-1,
-.item-2,
-.item-3,
-.item-4,
-.item-5,
-.item-6,
-.item-7 {
-  overflow: hidden;
-  padding-left: 8%;
-}
-
-.item-2 h2,
-.item-3 h2,
-.item-4 h2,
-.item-5 h2,
-.item-6 h2,
-.item-7 h2 {
-  font-weight: 400;
-}
-
-.item-3 div ul li,
-.item-4 div ul li {
-  margin: 0%;
-  font-weight: 250;
-}
-
-.experience-section,
-.projects-section,
-.skills-section {
-  margin: 2%;
-}
-
-.skills-section p {
-  margin-bottom: 2%;
-}
-
-.item-2 p,
-.item-3 p,
-.item-4 p,
-.item-5 p,
-.item-6 p,
-.item-7 p {
-  overflow-wrap: anywhere;
-}
-
 .item-3 {
   grid-area: projects;
 }
@@ -256,70 +160,119 @@ body {
   grid-area: education;
 }
 .item-7 {
-  grid-area: about-me;
+  grid-area: about;
 }
 
-/* a {
+/* Sections */
+.projects-section,
+.experience-section,
+.skills-section {
+  margin: 2% 0 0 2%;
+}
+.project-title,
+.experience-title,
+.edu-school {
+  margin: 0 0 0.25rem 0;
+}
+.project ul,
+.experience ul {
+  margin: 0 0 1rem 1.25rem;
+}
+.education-entry + .education-entry {
+  margin-top: 1rem;
+}
+.edu-degree {
+  font-weight: 500;
+}
+.edu-dates {
+  margin: 0.25rem 0 0 0;
+}
+
+/* Text */
+p {
+  margin: 0 0 0.75rem 0;
+}
+h2 {
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+}
+
+/* “Button-like” links (scoped) */
+.btn-link {
   position: relative;
   text-decoration: none;
-  color: #000;
-  transition: color 0.3s ease;
-}
-
-a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  font-weight: 500;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
+  color: #fff;
   background: #333;
-  transition: width 0.3s ease;
-}
-
-a:hover {
-  color: black; 
+  padding: 10px 20px;
+  border-radius: 8px;
   font-weight: 500;
+  display: inline-block;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-
-a:hover::after {
-  width: 100%;
-} */
-
-/* Base styles for links */
-a {
-  position: relative;
-  text-decoration: none;
-  color: #fff; /* White text for contrast */
-  background: #333; /* Dark background */
-  padding: 10px 20px; /* Creates button-like shape */
-  border-radius: 8px; /* Rounded corners */
-  font-weight: 500;
-  transition: all 0.3s ease;
-  display: inline-block; /* Ensures padding is respected */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle depth */
-}
-
-/* Hover state */
-a:hover {
-  background: #555; /* Slightly lighter background on hover */
-  transform: translateY(-2px); /* Lift effect */
+.btn-link:hover,
+.btn-link:focus {
+  background: #555;
+  transform: translateY(-2px);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
-
-/* Optional underline animation */
-a::after {
+.btn-link::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -4px;
   width: 0%;
   height: 2px;
-  background: #fff; /* White underline */
-  transition: width 0.3s ease;
+  background: #fff;
+  transition: width 0.2s ease;
+}
+.btn-link:hover::after,
+.btn-link:focus::after {
+  width: 100%;
 }
 
-a:hover::after {
-  width: 100%;
+/* Footer */
+.site-footer {
+  margin-top: 2%;
+  text-align: center;
+  color: #052b2b;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  body {
+    padding: 1.25rem;
+  }
+
+  .main-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "summary"
+      "experience"
+      "projects"
+      "education"
+      "skills"
+      "about";
+  }
+
+  .contact-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .intro {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+  .avatar {
+    --size: 96px;
+  }
+  .page-title {
+    text-align: center;
+  }
 }

@@ -2,238 +2,276 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rohan Bhande — Resume</title>
+
+    <!-- Styles -->
     <link rel="stylesheet" href="./style.css" />
-    <!--Importing fonts-->
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!--Importing icons-->
+
+    <!-- Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-papNM5Qf5Dk7Z0p3g1oL9e0hJcWm6t5o0lq9nSm3w8d1x2VQwQpGv3CwPj6o2v2X9u+o1f6r6w2r1o0Jz8aQ2w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
   </head>
-  <body>
-    <div class="main-container">
-      <!--Introduction-->
-      <div class="item-1">
-        <section class="intro">
-          <img class="avatar" src="profile-picture.jpg" alt="Profile picture" />
-          <div class="intro-main">
-            <h1>Rohan Bhande - Aspiring Web Developer</h1>
-            <div class="contact-row">
-              <section class="intro-section-1">
-                <div class="phone-number">
-                  <i class="fa-solid fa-phone"></i>
-                  <p><a href="tel:+13122738582">+1-312-273-8582</a></p>
-                </div>
-                <div class="linked-in">
-                  <i class="fa-brands fa-linkedin"></i>
-                  <p>
-                    <a
-                      href="https://www.linkedin.com/in/rohan-bhande-08091a169/"
-                      target="_blank"
-                      >LinkedIn</a
-                    >
-                  </p>
-                </div>
-              </section>
 
-              <section class="intro-section-2">
-                <div class="email">
-                  <i class="fa-solid fa-envelope"></i>
-                  <p>
-                    <a href="mailto:rohanbhandeworks@gmail.com"
-                      >rbhande@hawk.illinoistech.edu.co</a
-                    >
-                  </p>
-                </div>
-                <div class="github">
-                  <i class="fa-brands fa-github"></i>
-                  <p>
-                    <a href="https://github.com/rbhande/" target="_blank"
-                      >GitHub</a
-                    >
-                  </p>
-                </div>
-              </section>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="header item-1" role="banner">
+      <section class="intro">
+        <figure class="intro-media">
+          <img
+            class="avatar"
+            src="profile-picture.jpg"
+            alt="Headshot of Rohan Bhande"
+          />
+        </figure>
+
+        <div class="intro-main">
+          <h1 class="page-title">Rohan Bhande — Aspiring Web Developer</h1>
+
+          <address class="contact" aria-label="Contact information">
+            <div class="contact-row">
+              <ul class="contact-col" aria-label="Primary contacts">
+                <li class="contact-item">
+                  <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                  <a class="btn-link" href="tel:+13122738582"
+                    >+1 (312) 273-8582</a
+                  >
+                </li>
+                <li class="contact-item">
+                  <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                  <a
+                    class="btn-link"
+                    href="https://www.linkedin.com/in/rohan-bhande-08091a169/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >LinkedIn</a
+                  >
+                </li>
+              </ul>
+
+              <ul class="contact-col" aria-label="Secondary contacts">
+                <li class="contact-item">
+                  <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                  <!-- Keep your mailto target; update text to match as needed -->
+                  <a class="btn-link" href="mailto:rohanbhandeworks@gmail.com"
+                    >rohanbhandeworks@gmail.com</a
+                  >
+                </li>
+                <li class="contact-item">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                  <a
+                    class="btn-link"
+                    href="https://github.com/rbhande/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >GitHub</a
+                  >
+                </li>
+              </ul>
             </div>
-          </div>
-        </section>
-      </div>
-      <!--Summary-->
-      <div class="item-2">
-        <h2>Summary</h2>
+          </address>
+        </div>
+      </section>
+    </header>
+
+    <main id="main" class="main-container" role="main">
+      <!-- Summary -->
+      <section class="card item-2" aria-labelledby="summary-heading">
+        <h2 id="summary-heading">Summary</h2>
         <p>
-          Master's in Applied AI and Data Science at the Illinois Institute of
+          Master’s in Applied AI and Data Science at the Illinois Institute of
           Technology. Actively looking for a role where I can contribute
           creatively—ideally something on the front-end side that blends strong
           design sensibilities with real product impact.
         </p>
-      </div>
-      <div class="item-3">
-        <h2>Projects</h2>
-        <section class="projects-section">
-          <div>
-            <p>
-              <b
-                ><a
-                  href="https://github.com/whoseunassailable/readiculous_frontend"
-                  target="_blank"
-                  >Readiculous</a
-                ></b
+      </section>
+
+      <!-- Projects -->
+      <section class="card item-3" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Projects</h2>
+
+        <div class="projects-section">
+          <article class="project">
+            <h3 class="project-title">
+              <a
+                href="https://github.com/whoseunassailable/readiculous_frontend"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Readiculous</a
               >
-            </p>
+            </h3>
             <ul>
               <li>
-                Help libraries decide which books to stock in their area based
-                on location and genre-based analysis of user ratings.
+                Helps libraries decide which books to stock using location and
+                genre-based analysis of user ratings.
               </li>
             </ul>
-          </div>
-          <div>
-            <p>
-              <b
-                ><a
-                  href="https://github.com/whoseunassailable/uniquest_backend"
-                  target="_blank"
-                  >Uniquest</a
-                ></b
+          </article>
+
+          <article class="project">
+            <h3 class="project-title">
+              <a
+                href="https://github.com/whoseunassailable/uniquest_backend"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Uniquest</a
               >
-            </p>
+            </h3>
             <ul>
               <li>
-                Built a cross-platform app to help international students find
+                Cross-platform app to help international students find
                 universities and predict admission chances using ML.
               </li>
             </ul>
-          </div>
-          <div>
-            <p><b>Koko Fresh / Inyange Fresh</b></p>
+          </article>
+
+          <article class="project">
+            <h3 class="project-title">Koko Fresh / Inyange Fresh</h3>
             <ul>
               <li>
-                An application to monitor and manage status of milk dispensing
-                ATMs of 10 different ATMs.
+                Application to monitor and manage the status of 10 milk
+                dispensing ATMs.
               </li>
             </ul>
-          </div>
-          <div>
-            <p><b>Koko Agent</b></p>
+          </article>
+
+          <article class="project">
+            <h3 class="project-title">Koko Agent</h3>
             <ul>
               <li>
-                Developed and deployed a financial transaction management
-                platform for milk ATM agents, including secure wallet top-ups,
+                Financial transaction management platform for milk ATM agents,
+                including secure wallet top-ups.
               </li>
             </ul>
-          </div>
-          <div>
-            <p><b>Coventry Meditation</b></p>
-            <ul>
-              <li>
-                Developed, tested, and deployed a meditation app for different
-                beliefs of Coventry university to both Android and iOS platforms
-                via Google Play Store and App Store.
-              </li>
-            </ul>
-          </div>
-        </section>
-      </div>
-      <div class="item-4">
-        <h2>Experience</h2>
-        <section class="experience-section">
-          <div>
-            <p><b>Excelerate</b></p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section class="card item-4" aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Experience</h2>
+
+        <div class="experience-section">
+          <article class="experience">
+            <h3 class="experience-title">Excelerate</h3>
             <ul>
               <li>
                 Analyzed user data to derive meaningful insights, achieving a
                 30% improvement in data-driven decision-making accuracy.
               </li>
             </ul>
-          </div>
-          <div>
-            <p><b>Launch Ventures</b></p>
+          </article>
+
+          <article class="experience">
+            <h3 class="experience-title">Launch Ventures</h3>
             <ul>
               <li>
-                Engineered 5+ cross-platform applications using the Flutter
-                framework (Flutter, Firebase, Codemagic), used by 10k+ users,
-                improving UI performance by 25%.
+                Engineered 5+ cross-platform apps with Flutter (Flutter,
+                Firebase, Codemagic), used by 10k+ users, improving UI
+                performance by 25%.
               </li>
               <li>
                 Automated CI/CD (Codemagic) pipelines, reducing deployment
                 cycles by 30%.
               </li>
               <li>
-                Partnered with clients from other countries, and provided
-                recommendations leading to improved product performance and
-                enhanced client satisfaction.
+                Partnered with international clients and delivered
+                recommendations that improved product performance and
+                satisfaction.
               </li>
               <li>
                 Integrated real-time APIs (Node.js backend) to manage financial
                 operations, improving agent error rate by 40%.
               </li>
             </ul>
-          </div>
-          <div>
-            <p><b>MIT-FOSS</b></p>
+          </article>
+
+          <article class="experience">
+            <h3 class="experience-title">MIT-FOSS</h3>
             <ul>
               <li>
-                Built comprehensive UML flowcharts and diagrams for web and
-                mobile applications, supporting data organization and model
-                accuracy in software programming.
+                Built UML flowcharts and diagrams for web and mobile apps,
+                supporting data organization and model accuracy.
               </li>
               <li>
                 Designed 5+ wireframes and a final prototype with Figma,
-                boosting design clarity and user feedback, integral to the user
-                interface design process.
+                boosting design clarity and user feedback.
               </li>
-              <li>Constructed responsive websites pages.</li>
+              <li>Constructed responsive website pages.</li>
             </ul>
-          </div>
-        </section>
-      </div>
-      <div class="item-5">
-        <h2>Education</h2>
-        <section>
+          </article>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="card item-6" aria-labelledby="skills-heading">
+        <h2 id="skills-heading">Skills</h2>
+
+        <div class="skills-section">
           <p>
-            <b> Illinois Institute of Technology</b>— M.S. Applied AI & Data
-            Science
-          </p>
-          <p>Expected May 2026</p>
-        </section>
-        <hr />
-        <section>
-          <p><b>Maharashtra Institute of Technology</b>—Computer Science</p>
-          <p>May 2022</p>
-        </section>
-      </div>
-      <div class="item-6">
-        <h2>Skills</h2>
-        <section class="skills-section">
-          <p>
-            <b>Programming & Frameworks: </b>
-            Dart, Java, Python, JavaScript, SQL, Flutter, Firebase, React.
+            <strong>Programming & Frameworks:</strong>
+            Dart, Java, Python, JavaScript, SQL, Flutter, Firebase, React
           </p>
           <p>
-            <b>Databases: </b>MySQL, MongoDB. Software Development Concepts:
-            Object-Oriented Programming (OOP), Data Structures and Algorithm,
-            TDD, SOLID Principles, KISS Principles, BLoc architecture.
+            <strong>Databases:</strong>
+            MySQL, MongoDB.
+            <strong>Software Development Concepts:</strong>
+            OOP, Data Structures & Algorithms, TDD, SOLID, KISS, BLoC
+            architecture
           </p>
           <p>
-            <b>Web Development: </b>HTML, CSS, User Interface Design (UI/UX),
-            Figma.
+            <strong>Web Development:</strong>
+            HTML, CSS, UI/UX, Figma
           </p>
           <p>
-            <b>Artificial Intelligence & Machine Learning: </b>Artificial
-            Intelligence, Machine Learning. OTHER: Codemagic, MS Office suite,
-            UML Diagrams, Figma, Obsidian.
+            <strong>AI & ML:</strong>
+            Artificial Intelligence, Machine Learning.
+            <strong>Other:</strong>
+            Codemagic, MS Office, UML Diagrams, Figma, Obsidian
           </p>
-        </section>
-      </div>
-      <div class="item-7">
-        <h2>About Me</h2>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="card item-5" aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
+
+        <article class="education-entry">
+          <h3 class="edu-school">
+            Illinois Institute of Technology
+            <span class="edu-degree">— M.S. Applied AI & Data Science</span>
+          </h3>
+          <p class="edu-dates">Expected May 2026</p>
+        </article>
+
+        <hr aria-hidden="true" />
+
+        <article class="education-entry">
+          <h3 class="edu-school">
+            Maharashtra Institute of Technology
+            <span class="edu-degree">— B.S. Computer Science</span>
+          </h3>
+          <p class="edu-dates">May 2022</p>
+        </article>
+      </section>
+
+      <!-- About Me -->
+      <section class="card item-7" aria-labelledby="about-heading">
+        <h2 id="about-heading">About Me</h2>
         <p>
           I enjoy going to the gym, exploring different cuisines, and
           occasionally taking trips just to reset. I like working with people
@@ -245,11 +283,17 @@
           need both creative thinking and engineering discipline, and that's the
           sweet spot I'm aiming for.
         </p>
-      </div>
-    </div>
-    <hr />
-    <footer>
-      <p>&copy; 2025 Rohan Bhande | Hosted on GitHub Pages</p>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <p>
+        &copy; <span id="year">2025</span> Rohan Bhande • Hosted on GitHub Pages
+      </p>
     </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
